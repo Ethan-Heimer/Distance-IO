@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distance IO</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="block pad text-large flex space-apart">
+        <div>
+            Distance.io
+            <i class="fa-solid fa-location-dot"></i>
+        </div>
+
+       
+        <i id="settings-button" class="fa-solid fa-gear text-indent tilt"></i>
+        
+
+    </header>
+    
+        <div id="settings-modal" class="block absolute pad" style="transition: .25s; right: 0%; opacity: 0;">
+            <p class="text-large">Settings</p>  
+            <form class="space flex column">
+                <div class="space flex column">
+                    <label for="start-date">Start date:</label>
+                    <input class="text-secondary" type="date" id="start-date" name="fname">
+                </div>
+
+                <div class="space flex column">
+                    <label for="end-date">End date:</label>
+                    <input class="text-secondary" type="date" id="end-date" name="lname">
+                </div>
+            </form> 
+        </div>
+
+    <div class=" flex column items-center justify-center">
+        <p class="text-xlarge text-indent pad space-medium text-center">How Long Until Long Distance is Over? </p>
+        <div class="block flex column items-center justify-center standard-width">
+            <p class="text-large text-indent pad">Clock </p>
+            <div class="split">
+                <div id="text-stack" class="flex column justify-center pad items-center">
+                    <div class="pad-large">
+                    
+                        <div class="pad-small">
+                            <span class="text-large text-indent">Years: </span>
+                            <span id="year-counter" class="text-medium text-indent">000/999</span>
+                        </div>
+
+                        <div class="pad-small">
+                            <span class="text-large text-indent">Weeks: </span>
+                            <span id="week-counter" class="text-medium text-indent">000/999</span>
+                        </div>
+
+                        <div class="pad-small">
+                            <span class="text-large text-indent">Days: </span>
+                            <span id="day-counter" class="text-medium text-indent">000/999</span>
+                        </div>
+
+                        <div class="pad-small">
+                            <span class="text-large text-indent">Hours: </span>
+                            <span id="hour-counter" class="text-medium text-indent">000/999</span>
+                        </div>
+
+                        <div class="pad-small">
+                            <span class="text-large text-indent">Minute: </span>
+                            <span id="minutes-counter" class="text-medium text-indent">000/999</span>
+                        </div>
+
+                        <div class="pad-small">
+                            <span class="text-large text-indent">Seconds: </span>
+                            <span id="second-counter" class="text-medium text-indent">000/999</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center items-center">
+                    <canvas class="pad" id="canvas" width="500" height="500"></canvas>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-center flex-wrap space-large-down">
+                <div class="pad flex column justify-center items-center">
+                    <div class="color-block space" style="--block-color: #d9ed92; --block-shadow-color: #b5e48c"></div>
+                    <p>Seconds</p>
+                </div>
+
+                <div class="pad flex column justify-center items-center">
+                    <div class="color-block space" style="--block-color: #99d98c; --block-shadow-color: #76c893"></div>
+                    <p>Minutes</p>
+                </div>
+
+                <div class="pad flex column justify-center items-center">
+                    <div class="color-block space" style="--block-color: #52b69a; --block-shadow-color: #34a0a4"></div>
+                    <p>Hours</p>
+                </div>
+
+                <div class="pad flex column justify-center items-center">
+                    <div class="color-block space" style="--block-color: #168aad; --block-shadow-color: #1a759f"></div>
+                    <p>Days</p>
+                </div>
+
+                <div class="pad flex column justify-center items-center">
+                    <div class="color-block space" style="--block-color: #28658E; --block-shadow-color: #35557D"></div>
+                    <p>Weeks</p>
+                </div>
+
+                <div class="pad flex column justify-center items-center">
+                    <div class="color-block space" style="--block-color: #42456C; --block-shadow-color: #493D63"></div>
+                    <p>Years</p>
+                </div>
+
+                <div class="pad flex column justify-center items-center">
+                    <div class="color-block space" style="--block-color: #4C395F; --block-shadow-color: #4F345A"></div>
+                    <p>Total</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+       
+    <div class="space-large">
+        <div class="flex column items-center justify-center">
+            <div class="block flex column items-center justify-center standard-width">
+                <p class="text-large text-indent pad">Progress Bar </p>
+                <div class="flex column center pad"> 
+
+                    <p id="percent" class="text-large text-indent pad">0% </p>
+                    <div class="bar background space-large-down">
+                        <div id="bar" class="bar active">
+                                
+                        </div>   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class = "pad block flex items-center justify-center">
+        Made with 💖 | For 💖
+    </footer>
+    
+
+    <script src="app.js"></script>
+    <script src="settings.js"></script>
+    <script src="https://kit.fontawesome.com/55d47529ec.js" crossorigin="anonymous"></script>
+</body>
+</html>
