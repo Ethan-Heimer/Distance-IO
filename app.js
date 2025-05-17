@@ -68,7 +68,7 @@ setInterval(() => {
   updateText(hourCounter, currentDifference, maxDifference, millisecondsToHours);
   updateText(dayCounter, currentDifference, maxDifference, millisecondsToDays);
   updateText(weekCounter, currentDifference, maxDifference, millisecondsToWeeks);
-  updateText(yearCounter, currentDifference, maxDifference, millisecondsToYears);
+  updateText(yearCounter, currentDifference, maxDifference, millisecondsToYears, 2);
 
   updateBar(bar, currentDifference, maxDifference);
   updateBarText(percent, currentDifference, maxDifference);
@@ -175,7 +175,7 @@ function updateBarText(barText, currentDifference, maxDifference){
 }
 
 
-function updateText(counter, currentDifference, maxDifference, conversionFunction){
+function updateText(counter, currentDifference, maxDifference, conversionFunction, rounded){
   current = currentDifference;
   max = maxDifference;
 
@@ -185,7 +185,11 @@ function updateText(counter, currentDifference, maxDifference, conversionFunctio
     max = conversionFunction(max);
   }
   
-  counter.textContent = `${numberWithCommas(Math.floor(current))} / ${numberWithCommas(Math.floor(max))}`;
+  if(rounded == null)
+    counter.textContent = `${numberWithCommas(Math.floor(current))} / ${numberWithCommas(Math.floor(max))}`;
+  else{
+    counter.textContent = `${numberWithCommas(current.toFixed(rounded))} / ${numberWithCommas(Math.floor(max))}`;
+  }
 }
 
 function drawTimeArc(order, color, shadowColor, angleFunction){
